@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build"
+    "dev-demo": "vite --config vite.config.demo.ts",
+    "build": "tsc && vite build",
+    "build-demo": "tsc && vite build --config vite.config.demo.ts"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.0.3",

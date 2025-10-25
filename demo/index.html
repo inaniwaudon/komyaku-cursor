@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample Page</title>
+  <link rel="stylesheet" href="./dist/komyaku-cursor.css">
+  <style>
+    body {
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      min-height: 100vh; 
+      margin: 0; 
+      font-family: sans-serif;
+      background-color: #f0f0f0; 
+    }    
+
+    .button {
+      cursor: pointer; 
+      border: none;
+      border-radius: 50%;
+      background: #999;
+      position: absolute;
+    }
+
+    .button.selected {
+      background: #0c0;
+    }
+  </style>
+</head>
+<body>
+  <div id="circle-container" style="position: relative; width: 100vw; height: 100vh;"></div>
+  <script>
+    const container = document.getElementById('circle-container');
+
+    const onClick = (id) => {
+      for (const element of document.querySelectorAll(".button")) {
+        element.classList.remove("selected");
+      }
+      document.getElementById(id).classList.add("selected");
+    }
+
+    // 15 個のボタンをランダム配置
+    for (let i = 0; i < 20; i++) {
+      const btn = document.createElement('button');
+      btn.className = 'button';
+      btn.id = `button-n${i}`;
+      const radius = 5 + Math.random() * 10;
+      const x = Math.random() * window.innerWidth - radius;
+      const y = Math.random() * window.innerHeight - radius;
+
+      btn.style.left = `${x}px`;
+      btn.style.top = `${y}px`;
+      btn.style.width = `${radius * 2}px`;
+      btn.style.height = `${radius * 2}px`;
+      btn.onclick = () => {
+        onClick(btn.id);
+      };
+      container.appendChild(btn);
+    }
+
+    // クラスターを1個配置
+    (function createCluster() {
+      const clusterSize = 8;
+      const clusterRadius = 30;
+
+      // クラスターの中心位置
+      const margin = 60;
+      const clusterCenterX = Math.random() * (window.innerWidth - 2 * margin) + margin;
+      const clusterCenterY = Math.random() * (window.innerHeight - 2 * margin) + margin;
+
+      for (let i = 0; i < clusterSize; i++) {
+        // 半径：0–clusterRadius、角度：0–2πの範囲でランダム化
+        const r = Math.random() * clusterRadius;
+        const theta = Math.random() * 2 * Math.PI;
+        const buttonRadius = 5 + Math.random() * 5;
+        const x = clusterCenterX + r * Math.cos(theta) - buttonRadius;
+        const y = clusterCenterY + r * Math.sin(theta) - buttonRadius;
+
+        const btn = document.createElement('button');
+        btn.className = 'button';
+        btn.style.left = `${x}px`;
+        btn.style.top = `${y}px`;
+        btn.style.width = `${buttonRadius * 2}px`;
+        btn.style.height = `${buttonRadius * 2}px`;
+        btn.id = `button-c${i}`;
+        btn.onclick = () => {
+          onClick(btn.id);
+        };
+        container.appendChild(btn);
+      }
+    })();
+  </script>
+  <script type="module" src="./dist/main.js"></script>
+</body>
+</html>

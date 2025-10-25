@@ -1,7 +1,7 @@
 import "./main.css";
 import { drawKomyaku } from "./myaku";
 
-const DEBUG = true;
+const DEBUG = false;
 const DENSE_DISTANCE = 100;
 const RADIUS = 30;
 
@@ -18,6 +18,7 @@ let targets: Target[] = [];
 const draw = () => {
   targets = [];
 
+  // デバッグ用：div を削除
   const toRemoveElements = document.querySelectorAll(".clickable-highlight");
   for (const element of toRemoveElements) {
     element.remove();
@@ -53,7 +54,7 @@ const draw = () => {
     };
     targets.push(newTarget);
 
-    // div を描画
+    // デバッグ用：div を描画
     if (DEBUG) {
       const highlight = document.createElement("div");
       highlight.className = "clickable-highlight";

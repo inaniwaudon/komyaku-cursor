@@ -20,8 +20,9 @@ PC 環境にて，マウスまたはトラックパッドでの使用を前提�
 
 ## 使い方
 
-1. [chrome://extensions](chrome://extensions) にアクセスして，デベロッパーモードを有効にします
-2. `/release/crx-komyaku-cursor-x.x.x.zip` を画面にドラッグアンドドロップします
+1. [Releases](https://github.com/inaniwaudon/komyaku-cursor/releases) から最新のパッケージを取得します．
+2. [chrome://extensions](chrome://extensions) にアクセスして，デベロッパーモードを有効にします．
+3. `crx-komyaku-cursor-x.x.x.zip` を画面にドラッグアンドドロップします．
 
 ## 開発
 
