@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sample Page</title>
+  <title>Demo of komyaku-cursor</title>
   <link rel="stylesheet" href="./dist/komyaku-cursor.css">
   <style>
     body {
@@ -27,10 +27,27 @@
     .button.selected {
       background: #0c0;
     }
+
+    footer {
+      position: fixed;
+      left: 24px;
+      bottom: 16px;
+    }
+
+    footer a {
+      color: #333;
+      text-underline-offset: 2px;
+      text-decoration-color: #666;
+      font-size: 14px;
+      opacity: 0.8;
+    }
   </style>
 </head>
 <body>
   <div id="circle-container" style="position: relative; width: 100vw; height: 100vh;"></div>
+  <footer>
+    <a href="https://github.com/inaniwaudon/komyaku-cursor">GitHub（inaniwaudon/komyaku-cursor）</a>
+  </footer>
   <script>
     const container = document.getElementById('circle-container');
 
