@@ -1,0 +1,1 @@
+*{cursor:none!important}.clickable-highlight{position:absolute;border:2px solid rgba(255,0,0,.2);background:#ff00000d;pointer-events:none;z-index:1000}canvas.cursor{width:100vw;height:100vh;opacity:.5;pointer-events:none;position:fixed;top:0;left:0;z-index:9999}
