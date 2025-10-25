@@ -8,6 +8,7 @@ export default defineManifest({
   content_scripts: [
     {
       js: ["src/content/main.ts"],
+      matches: ["http://localhost:8080/*", "https://*.tsukuba.ac.jp/*"],
     },
   ],
   permissions: ["contentSettings"],

@@ -176,7 +176,7 @@ const loop = () => {
 
   // 密集状態
   if (denseTargets.length > 0) {
-    // denseTarget を x順にソート
+    // denseTargets を x順にソート
     const sortedDenseTargets = [...denseTargets].sort((a, b) => a.x - b.x);
 
     // 平均 x 座標を算出
@@ -198,8 +198,8 @@ const loop = () => {
       return;
     }
     const ajustedIndex = Math.max(
-      0,
-      Math.min(index, sortedDenseTargets.length - 1)
+      Math.min(index, sortedDenseTargets.length - 1),
+      0
     );
 
     nearestTarget = sortedDenseTargets[ajustedIndex];
@@ -362,7 +362,7 @@ const loop = () => {
         }
       }
 
-      // 密集状態にする
+      // 密集状態に移行
       if (tempDenseTargets.length > 4) {
         denseTargets = tempDenseTargets;
 
